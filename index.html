@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panoramic Voyage into the Grandeur of Art</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            color: #f5f5f5;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .cosmic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/stars.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: -1;
+            animation: cosmic-drift 60s linear infinite;
+        }
+        
+        @keyframes cosmic-drift {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(-20px) translateY(-10px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+        
+        .welcome-container {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .grand-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #fff8dc, #ffd700);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: golden-shimmer 3s ease-in-out infinite;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            letter-spacing: 0.1em;
+        }
+        
+        @keyframes golden-shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 400;
+            color: #e6e6fa;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fade-in-up 2s ease-out 1s forwards;
+            text-shadow: 0 0 20px rgba(230, 230, 250, 0.3);
+        }
+        
+        .philosophy-text {
+            max-width: 800px;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            line-height: 1.8;
+            color: #f0f8ff;
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fade-in-up 2s ease-out 2s forwards;
+            text-shadow: 0 0 15px rgba(240, 248, 255, 0.2);
+        }
+        
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .enter-button {
+            background: linear-gradient(45deg, #8b4513, #daa520, #ffd700, #daa520, #8b4513);
+            background-size: 300% 300%;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a0a2e;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            animation: button-glow 2s ease-in-out infinite;
+            opacity: 0;
+            animation: fade-in-up 2s ease-out 3s forwards, button-glow 2s ease-in-out infinite 3s;
+        }
+        
+        @keyframes button-glow {
+            0%, 100% { 
+                background-position: 0% 50%;
+                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            }
+            50% { 
+                background-position: 100% 50%;
+                box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+            }
+        }
+        
+        .enter-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5);
+        }
+        
+        .panoramic-gallery {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        
+        .panoramic-gallery.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .gallery-header {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 1001;
+        }
+        
+        .gallery-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .gallery-subtitle {
+            font-size: 1.2rem;
+            color: #e6e6fa;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .panoramic-container {
+            width: 100%;
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+        }
+        
+        .panoramic-scroll {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        .art-piece {
+            min-width: 400px;
+            height: 100%;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .art-piece:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+        }
+        
+        .art-piece img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .art-piece:hover img {
+            transform: scale(1.1);
+        }
+        
+        .art-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem 1rem 1rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .art-piece:hover .art-info {
+            transform: translateY(0);
+        }
+        
+        .art-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+        
+        .art-description {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+        
+        .navigation-controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 1001;
+        }
+        
+        .nav-button {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid #ffd700;
+            color: #ffd700;
+            padding: 1rem 2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-button:hover {
+            background: rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .close-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-symbol {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s linear infinite;
+        }
+        
+        .floating-symbol:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-symbol:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: -5s;
+        }
+        
+        .floating-symbol:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+        
+        .floating-symbol:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: -15s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0.1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .grand-title {
+                font-size: clamp(2rem, 6vw, 4rem);
+            }
+            
+            .subtitle {
+                font-size: clamp(1rem, 3vw, 1.5rem);
+            }
+            
+            .philosophy-text {
+                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                padding: 0 1rem;
+            }
+            
+            .panoramic-container {
+                height: 50vh;
+            }
+            
+            .art-piece {
+                min-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-background"></div>
+    
+    <div class="floating-elements">
+        <img src="images/celtic-knot.jpg" alt="Celtic Knot" class="floating-symbol" style="width: 100px; height: 100px; border-radius: 50%;">
+        <img src="images/imbolc-symbol.jpg" alt="Imbolc" class="floating-symbol" style="width: 80px; height: 80px; border-radius: 50%;">
+        <img src="images/beltane-symbol.jpg" alt="Beltane" class="floating-symbol" style="width: 90px; height: 90px; border-radius: 50%;">
+        <img src="images/lughnasadh-symbol.jpg" alt="Lughnasadh" class="floating-symbol" style="width: 85px; height: 85px; border-radius: 50%;">
+    </div>
+    
+    <div class="welcome-container">
+        <h1 class="grand-title">PANORAMIC VOYAGE</h1>
+        <h2 class="subtitle">Into the Grandeur of Art & Human Expression</h2>
+        <p class="philosophy-text">
+            Arts and Humanities are the last haven for humans with their universality and non-prejudice. 
+            Human beings can unite under the gathering and comprehensive aesthetics of arts. 
+            The last resort for humanity.
+        </p>
+        <button class="enter-button" onclick="openPanoramicGallery()">Enter the Sacred Gallery</button>
+    </div>
+    
+    <div class="panoramic-gallery" id="panoramicGallery">
+        <div class="gallery-header">
+            <h2 class="gallery-title">The Eternal Canvas</h2>
+            <p class="gallery-subtitle">A journey through the mystical realms of Celtic artistry and the universal language of human creativity</p>
+        </div>
+        
+        <div class="panoramic-container">
+            <div class="panoramic-scroll" id="panoramicScroll">
+                <div class="art-piece">
+                    <img src="images/imbolc-symbol.jpg" alt="Imbolc - Spring Rebirth">
+                    <div class="art-info">
+                        <h3 class="art-title">Imbolc - Spring Rebirth</h3>
+                        <p class="art-description">The sacred fire of Brigid, symbolizing the awakening of life and the eternal cycle of renewal.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/beltane-symbol.jpg" alt="Beltane - Fire & Fertility">
+                    <div class="art-info">
+                        <h3 class="art-title">Beltane - Fire & Fertility</h3>
+                        <p class="art-description">The maypole dance of life, celebrating the union of earth and sky, the sacred marriage of nature.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/lughnasadh-symbol.jpg" alt="Lughnasadh - Harvest Abundance">
+                    <div class="art-info">
+                        <h3 class="art-title">Lughnasadh - Harvest Abundance</h3>
+                        <p class="art-description">The golden fields of plenty, where the fruits of labor meet the generosity of the earth.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/samhain-symbol.jpg" alt="Samhain - Death & Rebirth">
+                    <div class="art-info">
+                        <h3 class="art-title">Samhain - Death & Rebirth</h3>
+                        <p class="art-description">The thin veil between worlds, where ancestors walk and wisdom flows like ancient rivers.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/celtic-knot.jpg" alt="Eternal Knot">
+                    <div class="art-info">
+                        <h3 class="art-title">Eternal Knot</h3>
+                        <p class="art-description">The infinite pattern of existence, where beginning meets end in perfect harmony.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/celtic-tile1.jpg" alt="Standing Stones">
+                    <div class="art-info">
+                        <h3 class="art-title">Standing Stones</h3>
+                        <p class="art-description">Ancient sentinels of wisdom, guardians of forgotten knowledge and cosmic alignment.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/celtic-tile2.jpg" alt="Tree of Life">
+                    <div class="art-info">
+                        <h3 class="art-title">Tree of Life</h3>
+                        <p class="art-description">The sacred connection between heaven and earth, roots deep in wisdom, branches reaching for the stars.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/celtic-tile3.jpg" alt="Spiral Pattern">
+                    <div class="art-info">
+                        <h3 class="art-title">Spiral Pattern</h3>
+                        <p class="art-description">The cosmic dance of creation, the golden ratio manifest in stone and spirit.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/celtic-tile4.jpg" alt="Forest Ritual">
+                    <div class="art-info">
+                        <h3 class="art-title">Forest Ritual</h3>
+                        <p class="art-description">The sacred grove where druids commune with nature, where magic flows like morning mist.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/celtic-tile5.jpg" alt="Sacred Cauldron">
+                    <div class="art-info">
+                        <h3 class="art-title">Sacred Cauldron</h3>
+                        <p class="art-description">The vessel of transformation, where wisdom brews and souls are reborn in eternal cycles.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/celtic-tile6.jpg" alt="Sacred Well">
+                    <div class="art-info">
+                        <h3 class="art-title">Sacred Well</h3>
+                        <p class="art-description">The source of all wisdom, where the waters of knowledge flow from the heart of the earth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation-controls">
+            <button class="nav-button" onclick="scrollGallery('left')">← Previous</button>
+            <button class="nav-button" onclick="scrollGallery('right')">Next →</button>
+        </div>
+        
+        <button class="close-button" onclick="closePanoramicGallery()">×</button>
+    </div>
+    
+    <script>
+        let currentScrollPosition = 0;
+        const scrollContainer = document.getElementById('panoramicScroll');
+        const scrollAmount = 450; // Width of art piece + gap
+        
+        function openPanoramicGallery() {
+            const gallery = document.getElementById('panoramicGallery');
+            gallery.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closePanoramicGallery() {
+            const gallery = document.getElementById('panoramicGallery');
+            gallery.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function scrollGallery(direction) {
+            if (direction === 'left') {
+                currentScrollPosition = Math.max(currentScrollPosition - scrollAmount, 0);
+            } else {
+                const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                currentScrollPosition = Math.min(currentScrollPosition + scrollAmount, maxScroll);
+            }
+            
+            scrollContainer.style.transform = `translateX(-${currentScrollPosition}px)`;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById('panoramicGallery').classList.contains('active')) {
+                if (event.key === 'ArrowLeft') {
+                    scrollGallery('left');
+                } else if (event.key === 'ArrowRight') {
+                    scrollGallery('right');
+                } else if (event.key === 'Escape') {
+                    closePanoramicGallery();
+                }
+            }
+        });
+        
+        // Auto-scroll animation for floating elements
+        function animateFloatingElements() {
+            const symbols = document.querySelectorAll('.floating-symbol');
+            symbols.forEach((symbol, index) => {
+                symbol.style.animationDelay = `${index * -5}s`;
+            });
+        }
+        
+        // Initialize animations
+        animateFloatingElements();
+        
+        // Add parallax effect to cosmic background
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const cosmicBg = document.querySelector('.cosmic-background');
+            cosmicBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+        
+        // Add click effect to enter button
+        document.querySelector('.enter-button').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    </script>
+</body>
+</html>
