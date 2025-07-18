@@ -1,0 +1,48 @@
+{
+  "name": "panoramic-art-voyage",
+  "version": "1.0.0",
+  "description": "An immersive panoramic journey through the grandeur of art history, celebrating arts and humanities as the universal language of human creativity",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "generate-images": "node image-generator.js",
+    "dev": "node server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "art",
+    "gallery",
+    "panoramic",
+    "art-history",
+    "humanities",
+    "interactive",
+    "web-experience",
+    "renaissance",
+    "impressionism",
+    "modern-art",
+    "contemporary-art",
+    "digital-art"
+  ],
+  "author": "Panoramic Art Voyage",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/panoramic-art-voyage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/panoramic-art-voyage/issues"
+  },
+  "homepage": "https://github.com/your-username/panoramic-art-voyage#readme",
+  "dependencies": {},
+  "devDependencies": {},
+  "files": [
+    "index.html",
+    "server.js",
+    "image-generator.js",
+    "README.md",
+    "images/"
+  ]
+}

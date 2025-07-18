@@ -27,18 +27,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/stars.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3;
+            background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
             z-index: -1;
             animation: cosmic-drift 60s linear infinite;
         }
         
         @keyframes cosmic-drift {
-            0% { transform: translateX(0) translateY(0); }
-            50% { transform: translateX(-20px) translateY(-10px); }
-            100% { transform: translateX(0) translateY(0); }
+            0% { transform: translateX(0) translateY(0) scale(1); }
+            50% { transform: translateX(-20px) translateY(-10px) scale(1.1); }
+            100% { transform: translateX(0) translateY(0) scale(1); }
         }
         
         .welcome-container {
@@ -393,10 +390,10 @@
     <div class="cosmic-background"></div>
     
     <div class="floating-elements">
-        <img src="images/celtic-knot.jpg" alt="Celtic Knot" class="floating-symbol" style="width: 100px; height: 100px; border-radius: 50%;">
-        <img src="images/imbolc-symbol.jpg" alt="Imbolc" class="floating-symbol" style="width: 80px; height: 80px; border-radius: 50%;">
-        <img src="images/beltane-symbol.jpg" alt="Beltane" class="floating-symbol" style="width: 90px; height: 90px; border-radius: 50%;">
-        <img src="images/lughnasadh-symbol.jpg" alt="Lughnasadh" class="floating-symbol" style="width: 85px; height: 85px; border-radius: 50%;">
+        <img src="images/renaissance-madonna.jpg" alt="Renaissance" class="floating-symbol" style="width: 100px; height: 100px; border-radius: 50%;">
+        <img src="images/impressionism-garden.jpg" alt="Impressionism" class="floating-symbol" style="width: 80px; height: 80px; border-radius: 50%;">
+        <img src="images/post-impressionism-starry-night.jpg" alt="Post-Impressionism" class="floating-symbol" style="width: 90px; height: 90px; border-radius: 50%;">
+        <img src="images/abstract-expressionism-action.jpg" alt="Abstract Expressionism" class="floating-symbol" style="width: 85px; height: 85px; border-radius: 50%;">
     </div>
     
     <div class="welcome-container">
@@ -413,96 +410,248 @@
     <div class="panoramic-gallery" id="panoramicGallery">
         <div class="gallery-header">
             <h2 class="gallery-title">The Eternal Canvas</h2>
-            <p class="gallery-subtitle">A journey through the mystical realms of Celtic artistry and the universal language of human creativity</p>
+            <p class="gallery-subtitle">A journey through the magnificent schools of art and painting that have shaped human expression across centuries</p>
         </div>
         
         <div class="panoramic-container">
             <div class="panoramic-scroll" id="panoramicScroll">
                 <div class="art-piece">
-                    <img src="images/imbolc-symbol.jpg" alt="Imbolc - Spring Rebirth">
+                    <img src="images/renaissance-madonna.jpg" alt="Renaissance Madonna">
                     <div class="art-info">
-                        <h3 class="art-title">Imbolc - Spring Rebirth</h3>
-                        <p class="art-description">The sacred fire of Brigid, symbolizing the awakening of life and the eternal cycle of renewal.</p>
+                        <h3 class="art-title">Renaissance Madonna</h3>
+                        <p class="art-description">The divine beauty of Leonardo da Vinci's style, where human emotion meets spiritual transcendence.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/beltane-symbol.jpg" alt="Beltane - Fire & Fertility">
+                    <img src="images/baroque-drama.jpg" alt="Baroque Drama">
                     <div class="art-info">
-                        <h3 class="art-title">Beltane - Fire & Fertility</h3>
-                        <p class="art-description">The maypole dance of life, celebrating the union of earth and sky, the sacred marriage of nature.</p>
+                        <h3 class="art-title">Baroque Drama</h3>
+                        <p class="art-description">Caravaggio's chiaroscuro mastery, where light and shadow dance in dramatic religious narratives.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/lughnasadh-symbol.jpg" alt="Lughnasadh - Harvest Abundance">
+                    <img src="images/impressionism-garden.jpg" alt="Impressionist Garden">
                     <div class="art-info">
-                        <h3 class="art-title">Lughnasadh - Harvest Abundance</h3>
-                        <p class="art-description">The golden fields of plenty, where the fruits of labor meet the generosity of the earth.</p>
+                        <h3 class="art-title">Impressionist Garden</h3>
+                        <p class="art-description">Monet's water lilies, capturing the fleeting beauty of light and nature in soft brushstrokes.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/samhain-symbol.jpg" alt="Samhain - Death & Rebirth">
+                    <img src="images/post-impressionism-starry-night.jpg" alt="Starry Night">
                     <div class="art-info">
-                        <h3 class="art-title">Samhain - Death & Rebirth</h3>
-                        <p class="art-description">The thin veil between worlds, where ancestors walk and wisdom flows like ancient rivers.</p>
+                        <h3 class="art-title">Starry Night</h3>
+                        <p class="art-description">Van Gogh's swirling cosmos, where emotion and color merge in expressive brushwork.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/celtic-knot.jpg" alt="Eternal Knot">
+                    <img src="images/expressionism-scream.jpg" alt="The Scream">
                     <div class="art-info">
-                        <h3 class="art-title">Eternal Knot</h3>
-                        <p class="art-description">The infinite pattern of existence, where beginning meets end in perfect harmony.</p>
+                        <h3 class="art-title">The Scream</h3>
+                        <p class="art-description">Munch's psychological masterpiece, where inner turmoil finds visual expression.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/celtic-tile1.jpg" alt="Standing Stones">
+                    <img src="images/cubism-portrait.jpg" alt="Cubist Portrait">
                     <div class="art-info">
-                        <h3 class="art-title">Standing Stones</h3>
-                        <p class="art-description">Ancient sentinels of wisdom, guardians of forgotten knowledge and cosmic alignment.</p>
+                        <h3 class="art-title">Cubist Portrait</h3>
+                        <p class="art-description">Picasso's revolutionary vision, fragmenting reality into geometric perspectives.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/celtic-tile2.jpg" alt="Tree of Life">
+                    <img src="images/surrealism-dream.jpg" alt="Surrealist Dream">
                     <div class="art-info">
-                        <h3 class="art-title">Tree of Life</h3>
-                        <p class="art-description">The sacred connection between heaven and earth, roots deep in wisdom, branches reaching for the stars.</p>
+                        <h3 class="art-title">Surrealist Dream</h3>
+                        <p class="art-description">Dali's melting clocks, where dream logic meets precise realism.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/celtic-tile3.jpg" alt="Spiral Pattern">
+                    <img src="images/abstract-expressionism-action.jpg" alt="Action Painting">
                     <div class="art-info">
-                        <h3 class="art-title">Spiral Pattern</h3>
-                        <p class="art-description">The cosmic dance of creation, the golden ratio manifest in stone and spirit.</p>
+                        <h3 class="art-title">Action Painting</h3>
+                        <p class="art-description">Pollock's energetic drips, where the artist's movement becomes the art itself.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/celtic-tile4.jpg" alt="Forest Ritual">
+                    <img src="images/pop-art-campbell.jpg" alt="Pop Art">
                     <div class="art-info">
-                        <h3 class="art-title">Forest Ritual</h3>
-                        <p class="art-description">The sacred grove where druids commune with nature, where magic flows like morning mist.</p>
+                        <h3 class="art-title">Pop Art Culture</h3>
+                        <p class="art-description">Warhol's soup cans, elevating everyday objects to high art status.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/celtic-tile5.jpg" alt="Sacred Cauldron">
+                    <img src="images/minimalism-geometric.jpg" alt="Minimalism">
                     <div class="art-info">
-                        <h3 class="art-title">Sacred Cauldron</h3>
-                        <p class="art-description">The vessel of transformation, where wisdom brews and souls are reborn in eternal cycles.</p>
+                        <h3 class="art-title">Minimalist Simplicity</h3>
+                        <p class="art-description">The power of reduction, where less becomes more in geometric purity.</p>
                     </div>
                 </div>
                 
                 <div class="art-piece">
-                    <img src="images/celtic-tile6.jpg" alt="Sacred Well">
+                    <img src="images/contemporary-digital.jpg" alt="Contemporary Digital">
                     <div class="art-info">
-                        <h3 class="art-title">Sacred Well</h3>
-                        <p class="art-description">The source of all wisdom, where the waters of knowledge flow from the heart of the earth.</p>
+                        <h3 class="art-title">Contemporary Digital</h3>
+                        <p class="art-description">The fusion of technology and creativity in the digital age.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/classical-sculpture.jpg" alt="Classical Sculpture">
+                    <div class="art-info">
+                        <h3 class="art-title">Classical Beauty</h3>
+                        <p class="art-description">Ancient Greek ideals of human perfection in marble form.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/medieval-illumination.jpg" alt="Medieval Illumination">
+                    <div class="art-info">
+                        <h3 class="art-title">Medieval Illumination</h3>
+                        <p class="art-description">Sacred texts brought to life with gold leaf and intricate detail.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/art-nouveau-nature.jpg" alt="Art Nouveau">
+                    <div class="art-info">
+                        <h3 class="art-title">Art Nouveau Elegance</h3>
+                        <p class="art-description">Mucha's flowing organic forms celebrating natural beauty.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/fauvism-landscape.jpg" alt="Fauvism">
+                    <div class="art-info">
+                        <h3 class="art-title">Fauvist Wild Colors</h3>
+                        <p class="art-description">Matisse's bold palette, where emotion dictates color choice.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/futurism-movement.jpg" alt="Futurism">
+                    <div class="art-info">
+                        <h3 class="art-title">Futurist Movement</h3>
+                        <p class="art-description">Capturing the speed and energy of the modern industrial age.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/dada-collage.jpg" alt="Dada">
+                    <div class="art-info">
+                        <h3 class="art-title">Dada Anti-Art</h3>
+                        <p class="art-description">Challenging conventions through random assemblages and found objects.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/de-stijl-composition.jpg" alt="De Stijl">
+                    <div class="art-info">
+                        <h3 class="art-title">De Stijl Grid</h3>
+                        <p class="art-description">Mondrian's neoplasticism, pure abstraction through primary colors.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/bauhaus-design.jpg" alt="Bauhaus">
+                    <div class="art-info">
+                        <h3 class="art-title">Bauhaus Function</h3>
+                        <p class="art-description">Where form follows function in modern industrial design.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/abstract-composition.jpg" alt="Abstract">
+                    <div class="art-info">
+                        <h3 class="art-title">Abstract Expression</h3>
+                        <p class="art-description">Pure emotion and color theory in non-representational form.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/realism-portrait.jpg" alt="Realism">
+                    <div class="art-info">
+                        <h3 class="art-title">Realist Truth</h3>
+                        <p class="art-description">Courbet's commitment to depicting life as it truly is.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/romanticism-landscape.jpg" alt="Romanticism">
+                    <div class="art-info">
+                        <h3 class="art-title">Romantic Sublime</h3>
+                        <p class="art-description">Turner's dramatic landscapes celebrating nature's overwhelming power.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/pre-raphaelite-beauty.jpg" alt="Pre-Raphaelite">
+                    <div class="art-info">
+                        <h3 class="art-title">Pre-Raphaelite Beauty</h3>
+                        <p class="art-description">Rossetti's medieval revival with rich colors and detailed nature.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/symbolism-mystical.jpg" alt="Symbolism">
+                    <div class="art-info">
+                        <h3 class="art-title">Symbolist Mystery</h3>
+                        <p class="art-description">Dreamlike atmospheres where symbols carry deeper meanings.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/art-deco-elegance.jpg" alt="Art Deco">
+                    <div class="art-info">
+                        <h3 class="art-title">Art Deco Luxury</h3>
+                        <p class="art-description">Geometric elegance celebrating the glamour of the 1920s.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/social-realism-worker.jpg" alt="Social Realism">
+                    <div class="art-info">
+                        <h3 class="art-title">Social Realism</h3>
+                        <p class="art-description">Art as social commentary, depicting the lives of working people.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/photorealism-detail.jpg" alt="Photorealism">
+                    <div class="art-info">
+                        <h3 class="art-title">Photorealist Precision</h3>
+                        <p class="art-description">Chuck Close's hyper-detailed technique blurring art and photography.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/neo-expressionism-raw.jpg" alt="Neo-Expressionism">
+                    <div class="art-info">
+                        <h3 class="art-title">Neo-Expressionist Raw</h3>
+                        <p class="art-description">Return to emotional intensity with gestural, personal expression.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/conceptual-idea.jpg" alt="Conceptual Art">
+                    <div class="art-info">
+                        <h3 class="art-title">Conceptual Thought</h3>
+                        <p class="art-description">Where the idea becomes more important than the visual object.</p>
+                    </div>
+                </div>
+                
+                <div class="art-piece">
+                    <img src="images/digital-art-future.jpg" alt="Digital Art">
+                    <div class="art-info">
+                        <h3 class="art-title">Digital Future</h3>
+                        <p class="art-description">The frontier where technology and creativity merge in new forms.</p>
                     </div>
                 </div>
             </div>
